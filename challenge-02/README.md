@@ -120,6 +120,7 @@ function caracter(x,y,z){
     }
 
 
+.
 }
 
 
