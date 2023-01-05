@@ -119,7 +119,7 @@ function caracter(x,y,z){
         return null
     }
 
-
+s
 .
 }
 
