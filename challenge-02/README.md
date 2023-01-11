@@ -10,12 +10,19 @@ function soma (x,y){
 }
 
 
+
+
 // Declare uma variável que receba a invocação da função criada acima, passando dois números quaisquer por argumento, e somando `5` ao resultado retornado da função.
 ?
 
+// Isso foi o que eu escrevi
 var loucura = soma;
 loucura (5,5) + 5;
 
+
+//correção 
+var loucura = soma( 5, 5 ) + 5;
+ 
 
 // Qual o valor atualizado dessa variável?
 ?
@@ -27,6 +34,9 @@ loucura (5,5) + 5;
 
 var nada = undefined
 
+    //correção
+    var nada;
+
 
 /*
 Crie uma função que adicione um valor à variável criada acima, e retorne a string:
@@ -36,18 +46,23 @@ Onde VALOR é o novo valor da variável.
 ?
 
 // ok estou com dúvida aqui// 
-function adiciona_nome (){
+function adiciona_valor (){
     nada = 10;
-    return 'O valor da variável agora é 'nada''
+    return 'O valor da variável agora é ' + nada''
 }
 
 // Invoque a função criada acima.
 ?
 
-adiciona_nome()
+adiciona_valor()
 
 // Qual o retorno da função? (Use comentários de bloco).
 ?
+
+/*
+Retorna Agora o valor da variável é 10;
+/*
+
 
 "O valor da variável agora é 10"
 /*
@@ -69,6 +84,16 @@ function blau(x,y,z){
     };
     
 };
+
+
+    //Correção
+    function blau( a, b, c_){
+    if (a === undefined || b === undefined || c === undefined) {
+        return "Preencha todos os valores corretamente!"
+    }; else {
+        return (a * b * c) + 2; 
+    };
+}    
 
 
 // Invoque a função criada acima, passando só dois números como argumento.
@@ -119,13 +144,35 @@ function caracter(x,y,z){
         return null
     }
 
-s
-.
+
 }
 
+// correção (Nunca na vida se usa essa quantidade de else if rsrsr)
 
+funcion threeArgs (x, y, z) {
+    if( x !== undefined && y === undefined && z === undefined){ //oq acontece aqui. A instrução só vai ser true quando X for diferente de undefined o Y e o Z não forem passados. Ou seja, X e Y = undefined.
+
+    return x;
+    }
+    else if (x !== undefined && y !== undefined && z === undefined){ //X e Y foram passados? São diferentes de undefined e Z é undefined, retorna soma X + Y;
+        return x + y;
+    }
+    else if (x !== undefined && y !== undefined && z !== undefined){ 
+        return (x + y)/z;
+    }
+    else if (x === undefined && y === undefined && z === undefined ){
+        return false;
+    }
+    else {
+        return null;
+    }
+}
 
 
 // Invoque a função acima utilizando todas as possibilidades (com nenhum argumento, com um, com dois e com três.) Coloque um comentário de linha ao lado da função com o resultado de cada invocação.
 ?
-```
+
+threeArgs(1); // return 1 
+threeArgs(5, 3); // return 8
+threeArgs(7, 4, 10); // return 1.1
+threeArgs(); // return false
