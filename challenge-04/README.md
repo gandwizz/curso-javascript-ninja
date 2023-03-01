@@ -157,26 +157,21 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
 
-carro.adicionarPessoas = function(numeroPessoas) {
+carro.adicionarPessoas = function( numeroPessoas ) {
     var totalPessoas = carro.quantidadePessoas + numeroPessoas;
-
-    if(totalPessoas === carro.assentos){
+    if( carro.quantidadePessoas === carro.assentos && totalPessoas >= carro.assentos ){
         return "O carro já está lotado!"
-
     }
 
     if( totalPessoas > carro.assentos){
-        return 'Só cabem mais [QUANTIDADE_DE_PESSOAS_QUE_CABEM] pessoas!'
-
+        var quantasPessoasCabem = carro.assentos - carro.quantidaPessoas;
+        var pluralOuSingular = quantasPessoasCabem === 1 ? 'pessoa' : 'pessoas'; 
+        return 'Só cabem mais ' + quantasPessoasCabem + pluralOuSingular + ' !';
     }
 
     carro.quantidadePessoas += numeroPessoas;
-
-    return "Já temos "+ totalPessoas +" pessoas no carro!"
-
-
+    return "Já temos " + carro.quantidadePessoas + " pessoas no carro!"
 };
-
 
 
 
@@ -207,20 +202,19 @@ carro.obterCor(); // 'Verde Musgo'
 carro.obterMarcaModelo();  "Esse carro é um Chevrolet Kadett "
 
 // Adicione 2 pessoas no carro.
-?
+carro.adicionarPessoas(2);
 
 // Adicione mais 4 pessoas no carro.
-?
+carro.adicionarPessoas(4); // 'Só cabem mais 3 pessoas'
 
 // Faça o carro encher.
-?
+carro.adicionarPessoas(3); // "Já temos 5 pessoas no carro"
 
 // Tire 4 pessoas do carro.
-?
+carro.adicionarPessoas(-4)
 
 // Adicione 10 pessoas no carro.
-?
+carro.adicionarPessoas(10);// "Só cabem mais 4 pessoas"  
 
 // Quantas pessoas temos no carro?
-?
-```
+carro.quantidadePessoas; // 1
